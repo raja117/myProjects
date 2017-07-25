@@ -29,6 +29,7 @@ public class VendingMachine {
 				"					 B. PINT				 $2.59\r\n" + 
 				"					 C. QUART				 $3.59 \r\n" + 
 				"				  ********************************************************************";
+		
 		System.out.println(s);
 	}
 	
