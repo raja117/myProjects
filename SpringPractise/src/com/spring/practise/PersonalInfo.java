@@ -8,7 +8,7 @@ public class PersonalInfo {
 	private String gender;
 	
 	public void init(){
-		//setFirstName("raja");
+		setFirstName("raja");
 		System.out.println(getFirstName());
 		System.out.println("in init method");
 	}
