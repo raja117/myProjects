@@ -6,6 +6,18 @@ public class PersonalInfo {
 	private String lastName;
 	private String middleName;
 	private String gender;
+
+	private PersonalInfo()
+	{
+		System.out.println("defult Constructor");
+	}
+	private PersonalInfo(String firstName, String lastName, String middleName, String gender)
+	{
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.middleName = middleName;
+		this.gender = gender;
+	}
 	
 	public void init(){
 		setFirstName("raja");

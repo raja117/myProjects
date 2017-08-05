@@ -6,17 +6,17 @@ public class TestSpring {
 
 	public static void main(String args[])
 	{
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("persoanlinfo.xml");
-//		PersonalInfo pi = (PersonalInfo) context.getBean("personaldetails");
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Bean.xml");
+		PersonalInfo pi = (PersonalInfo) context.getBean("personalinfo");
 //		pi.setFirstName("Raja");
 //		pi.setLastName("gogula");
 //		pi.setMiddleName("Naga");
 //		pi.setGender("male");
-//		//PersonalInfo pi2 = (PersonalInfo) context.getBean("personaldetails");
-//		System.out.println(pi2.getFirstName());
-//		System.out.println(pi2.getLastName());
-//		System.out.println(pi2.getMiddleName());
-//		System.out.println(pi2.getGender());
+		ContactInfo ci = (ContactInfo) context.getBean("contactinfo");
+		System.out.println(ci.getFirstName()+" "+ci.getLastName());
+		System.out.println(ci.getCity());
+		System.out.println(ci.getState());
+		System.out.println(ci.getCountry());
 		context.close();
 	}
 }
