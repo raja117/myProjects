@@ -1,23 +1,28 @@
-package com.servlet.weatherinfo;
+package com.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.model.LoginAction;
+
 /**
- * Servlet implementation class Weather
+ * Servlet implementation class Login
  */
-@WebServlet("/Weather")
-public class Weather extends HttpServlet {
+@WebServlet("/Login")
+public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Weather() {
+    public Login() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,8 +39,22 @@ public class Weather extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String cityName = request.getParameter("city_name");
-		String zipcode = request.getParameter("zipcode");
+		String email = request.getParameter("email");
+		String pwd = request.getParameter("pwd");
+		if(request.getParameter("hid").equalsIgnoreCase("login_page") && (email != null) && (pwd != null) )
+		{
+			ServletContext context = getServletContext();
+			LoginAction la = new LoginAction();
+			if(la.login(email, pwd, context))
+			{
+				response.sendRedirect("profile.html");
+			}
+			else
+			{
+				PrintWriter pw = response.getWriter();
+				pw.print("Please check your email or password");
+			}
+		}
 	}
 
 }

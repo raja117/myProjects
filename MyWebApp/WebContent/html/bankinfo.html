@@ -5,12 +5,14 @@
 <title>Bank Info</title>
 </head>
 <body>
+<form action="controller" method="post">
 	<div align="center">
+	<input type="hidden" name="hid" value="bank_info">
 		<table>
 			<tr>
 				<td>Bank Name :</td>
 				<td>
-					<select>
+					<select name="bankname">
 						<option value="empty">Please Select</option>
 						<option value="bankofamerica">Bank Of America</option>
 						<option value="wellsfargo">Wells Fargo</option>
@@ -27,8 +29,8 @@
 				<td><input type="text" size="5" name="ssn"/></td>
 			</tr>
 		</table>
-		<input type="button" name="next" value="<-- Back" onclick="window.location.href='contactinfo.html'"/>
-		<input type="button" name="next" value="Submit" onclick="window.location.href='success.html'"/>
+		<input type="submit" name="next" value="Submit"/>
 	</div>
+	</form>
 </body>
 </html>

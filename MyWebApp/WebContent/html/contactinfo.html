@@ -5,8 +5,18 @@
 <title>Contact Info</title>
 </head>
 <body>
+<form action="controller" method="post">
 <div align="center">
+<input type="hidden" name="hid" value="contact_info">
 	<table>
+		<tr>
+			<td>Email Id:</td>
+			<td><input id="email" type="email" name="email"></td>
+		</tr>
+		<tr>
+			<td>Password:</td>
+			<td><input type="password" name="pwd"></td>
+		</tr>
 		<tr>
 			<td>Address :</td>
 			<td><input id = "addr" type="text" name="addr" /></td>
@@ -21,7 +31,7 @@
 		</tr>
 		<tr>
 			<td>Country :</td>
-			<td><select>
+			<td><select name="country">
 					<option value="PleaseSelect" hidden="true">Please Select</option>
 					<option value="United States"> United States </option>
 					<option value="India">India </option>
@@ -34,8 +44,8 @@
 			<td><input id="phno" type="tel" name="phnumb"></td>
 		</tr>
 	</table>
-	<input type="button" name="next" value="<-- Back" onclick="window.location.href='personalInfo.html'"/>
-	<input type="button" name="next" value="Next -->" onclick="window.location.href='bankinfo.html'"/>
+	<input type="submit" name="next" value="Next -->"/>
 </div>
+</form>
 </body>
 </html>

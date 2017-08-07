@@ -5,7 +5,9 @@
 <title>Sign Up</title>
 </head>
 <body>
+<form action="controller" method="post">
 <div align="center">
+<input type="hidden" name="hid" value="personal_info">
 <table>
 	<tr>
 		<td>First Name :</td>
@@ -25,7 +27,8 @@
 			<input id="female" type="radio" name="gender" value="Female"> Female</td>
 	</tr>
 </table>
-	<input type="button" name="submit" value="Next -->" onclick="window.location.href='contactinfo.html'"/>
+	<input type="submit" name="submit" value="Next -->"/>
 </div>
+</form>
 </body>
 </html>
