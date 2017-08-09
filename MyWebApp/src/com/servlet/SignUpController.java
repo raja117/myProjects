@@ -19,14 +19,14 @@ import com.model.SignUpAction;
 @WebServlet("/Weather")
 public class SignUpController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SignUpController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public SignUpController() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -58,6 +58,7 @@ public class SignUpController extends HttpServlet {
 			session.setAttribute("phno", request.getParameter("phnumb"));
 			response.sendRedirect("bankinfo.html");
 		}
+
 		else if(request.getParameter("hid").equalsIgnoreCase("bank_info"))
 		{
 			session.setAttribute("bank_name", request.getParameter("bankname"));

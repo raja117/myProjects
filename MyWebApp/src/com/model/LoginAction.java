@@ -16,9 +16,9 @@ public class LoginAction {
 			Connection conn = db.connectDb();
 			Statement stmt = conn.createStatement();
 			String sql = "Select user_password from table user_login_details where user_email='"+email+"'";
-			
+
 			ResultSet rs = stmt.executeQuery(sql);
-			
+
 			while(rs.next())
 			{
 				user_Password = rs.getString(1);
@@ -31,7 +31,7 @@ public class LoginAction {
 			{
 				return false;
 			}
-			
+
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 			return false;

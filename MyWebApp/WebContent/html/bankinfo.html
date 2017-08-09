@@ -5,32 +5,30 @@
 <title>Bank Info</title>
 </head>
 <body>
-<form action="controller" method="post">
-	<div align="center">
-	<input type="hidden" name="hid" value="bank_info">
-		<table>
-			<tr>
-				<td>Bank Name :</td>
-				<td>
-					<select name="bankname">
-						<option value="empty">Please Select</option>
-						<option value="bankofamerica">Bank Of America</option>
-						<option value="wellsfargo">Wells Fargo</option>
-						<option value="chasebank">Chase Bank</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td>Account # :</td>
-				<td><input id="acno" type="text" name="acno" /></td>
-			</tr>
-			<tr>
-				<td>SSN :</td>
-				<td><input type="text" size="5" name="ssn"/></td>
-			</tr>
-		</table>
-		<input type="submit" name="next" value="Submit"/>
-	</div>
+	<form action="controller" method="post">
+		<div align="center">
+			<input type="hidden" name="hid" value="bank_info">
+			<table>
+				<tr>
+					<td>Bank Name :</td>
+					<td><select name="bankname">
+							<option value="empty">Please Select</option>
+							<option value="bankofamerica">Bank Of America</option>
+							<option value="wellsfargo">Wells Fargo</option>
+							<option value="chasebank">Chase Bank</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td>Account # :</td>
+					<td><input id="acno" type="text" name="acno" /></td>
+				</tr>
+				<tr>
+					<td>SSN :</td>
+					<td><input type="text" size="5" name="ssn" /></td>
+				</tr>
+			</table>
+			<input type="submit" name="next" value="Submit" />
+		</div>
 	</form>
 </body>
 </html>

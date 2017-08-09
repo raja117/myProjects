@@ -5,48 +5,51 @@
 <title>Calculator</title>
 </head>
 <body>
-<script type="text/javascript">
-	function calculate(objectBtn)
-	{
-		var num1 = document.getElementById("num1").value;
-		var num2 = document.getElementById("num2").value;
-		var opr = objectBtn.value;
-		if(opr === '+'){
-		document.getElementById("result").value = Number(num1)+Number(num2);
+	<script type="text/javascript">
+		function calculate(objectBtn) {
+			var num1 = document.getElementById("num1").value;
+			var num2 = document.getElementById("num2").value;
+			var opr = objectBtn.value;
+			if (opr === '+') {
+				document.getElementById("result").value = Number(num1)
+						+ Number(num2);
+			}
+			if (opr === '-') {
+				document.getElementById("result").value = Number(num1)
+						- Number(num2);
+			}
+			if (opr === '*') {
+				document.getElementById("result").value = Number(num1)
+						* Number(num2);
+			}
+			if (opr === '/') {
+				document.getElementById("result").value = Number(num1)
+						/ Number(num2);
+			}
 		}
-		if(opr === '-'){
-			document.getElementById("result").value = Number(num1)-Number(num2);
-		}
-		if(opr === '*'){
-			document.getElementById("result").value = Number(num1)*Number(num2);
-		}
-		if(opr === '/'){
-			document.getElementById("result").value = Number(num1) / Number(num2);
-		}
-	}
-</script>
-<form>
-<div align="center" style="border-style: solid;">
-	<table>
-		<tr>
-			<td>Number 1</td>
-			<td><input id="num1" type="number" size="5" value=""/></td>
-		</tr>
-		<tr>
-			<td>Number 2</td>
-			<td><input id="num2" type="number" size="5" value=""/></td>
-		</tr>
-		<tr>
-			<td>Result </td>
-			<td><input id="result" type="number" size="5" value=""/></td>
-		</tr>
-	</table>
-	<br></br>
-	<input id="add" type="button" value="+" size="3" onclick="calculate(this)"/> 
-	 <input id="sub" type="button" value="-" size="3" onclick="calculate(this)"/> 
-	 <input id="mul" type="button" value="*" size="3" onclick="calculate(this)"/> 
-	 <input id="div" type="button" value="/" size="3" onclick="calculate(this)"/>	
-</div>
-</form>
+	</script>
+	<form>
+		<div align="center" style="border-style: solid;">
+			<table>
+				<tr>
+					<td>Number 1</td>
+					<td><input id="num1" type="number" size="5" value="" /></td>
+				</tr>
+				<tr>
+					<td>Number 2</td>
+					<td><input id="num2" type="number" size="5" value="" /></td>
+				</tr>
+				<tr>
+					<td>Result</td>
+					<td><input id="result" type="number" size="5" value="" /></td>
+				</tr>
+			</table>
+			<br></br> <input id="add" type="button" value="+" size="3"
+				onclick="calculate(this)" /> <input id="sub" type="button" value="-"
+				size="3" onclick="calculate(this)" /> <input id="mul" type="button"
+				value="*" size="3" onclick="calculate(this)" /> <input id="div"
+				type="button" value="/" size="3" onclick="calculate(this)" />
+		</div>
+	</form>
 </body>
 </html>
