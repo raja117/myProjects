@@ -53,6 +53,7 @@ public class Login extends HttpServlet {
 			} else {
 				PrintWriter pw = response.getWriter();
 				pw.print("Please check your email or password");
+				response.sendRedirect("login.html");
 			}
 		}
 	}
