@@ -13,7 +13,7 @@ public class UserDetailsAction {
 	private String state;
 	private String country;
 	
-	private String insert_user_details = "insert into user_details(name, gender, address, city, state, country) values ('"
+	private String insert_user_details = "insert into user_details (name, gender, address, city, state, country) values ('"
 										 + name + "','" + gender + "','" + address + "','" + city + "','"
 										 + state + "','" + country + "')";
 	
@@ -83,7 +83,9 @@ public class UserDetailsAction {
 	public boolean createUserPersonalDetails(Statement stmt) {
 			
 		try{
-			stmt.executeUpdate(insert_user_details);
+			stmt.executeUpdate("insert into user_details (name, gender, address, city, state, country) values ('"
+				 + name + "','" + gender + "','" + address + "','" + city + "','"
+				 + state + "','" + country + "')");
 			return true;
 		}
 		catch(Exception e)

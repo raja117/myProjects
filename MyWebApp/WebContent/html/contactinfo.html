@@ -10,28 +10,20 @@
 			<input type="hidden" name="hid" value="contact_info">
 			<table>
 				<tr>
-					<td>Email Id:</td>
-					<td><input id="email" type="email" name="email"></td>
+					<td>Address* :</td>
+					<td><input id="addr" type="text" name="addr" required placeholder="Address"/></td>
 				</tr>
 				<tr>
-					<td>Password:</td>
-					<td><input type="password" name="pwd"></td>
+					<td>City* :</td>
+					<td><input id="city" type="text" name="city" required placeholder="City"/></td>
 				</tr>
 				<tr>
-					<td>Address :</td>
-					<td><input id="addr" type="text" name="addr" /></td>
+					<td>State* :</td>
+					<td><input id="state" type="text" name="state" required placeholder="State"></td>
 				</tr>
 				<tr>
-					<td>City :</td>
-					<td><input id="city" type="text" name="city" /></td>
-				</tr>
-				<tr>
-					<td>State :</td>
-					<td><input id="state" type="text" name="state"></td>
-				</tr>
-				<tr>
-					<td>Country :</td>
-					<td><select name="country">
+					<td>Country* :</td>
+					<td><select name="country" required>
 							<option value="PleaseSelect" hidden="true">Please Select</option>
 							<option value="United States">United States</option>
 							<option value="India">India</option>
@@ -40,8 +32,8 @@
 					</select></td>
 				</tr>
 				<tr>
-					<td>Phone Number :</td>
-					<td><input id="phno" type="tel" name="phnumb"></td>
+					<td>Phone Number* :</td>
+					<td><input id="phno" type="tel" name="phnumb" required placeholder="Contact Number"></td>
 				</tr>
 			</table>
 			<input type="submit" name="next" value="Next -->" />

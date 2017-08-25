@@ -4,31 +4,59 @@
 <meta charset="ISO-8859-1">
 <title>Sign Up</title>
 </head>
-<body>
+<body alink="center" style="padding: 100px;">
+	<script type="text/javascript">
+		function validate(){
+			var x = document.getElementById("pwd");
+			var y = document.getElementById("repwd");
+			if(x.value != y.value)
+			{
+				document.getElementById("pwdmatch").innerHTML = "password did not match"
+				document.getElementById("pwdmatch").style.color = "red";
+				return false;
+			}
+			if(x.value == y.value)
+			{
+				document.getElementById("pwdmatch").innerHTML = "password match"
+				document.getElementById("pwdmatch").style.color = "green";
+				return true;
+			}
+		}
+	</script>
 	<form action="controller" method="post">
 		<div align="center">
 			<input type="hidden" name="hid" value="personal_info">
-			<table>
-				<tr>
-					<td>First Name :</td>
-					<td><input id="fn" type="text" name="firstname" /></td>
+			<table style="border-style: outset; padding: 20px;">
+				<tr id="t1">
+					<td id="td1"><input id="fn" type="text" name="firstname" required placeholder="First Name" 
+					oninvalid="this.setCustomValidity('PLease enter your first name')" oninput="setCustomValidity('')"/></td>
 				</tr>
 				<tr>
-					<td>Last Name :</td>
-					<td><input id="ln" type="text" name="lastname" /></td>
+					<td><input id="ln" type="text" name="lastname" required placeholder="Enter Last Name"
+					oninvalid="this.setCustomValidity('Please enter your last name')" oninput="setCustomValidity('')"/></td>
 				</tr>
 				<tr>
-					<td>Middle Name :</td>
-					<td><input id="mn" type="text" name="middlename" /></td>
+					<td><input id="mn" type="text" name="middlename" placeholder="Middle Name"/></td>
 				</tr>
 				<tr>
-					<td>Gender :</td>
-					<td><input id="male" type="radio" name="gender" value="Male">
-						Male <input id="female" type="radio" name="gender" value="Female">
+					<td><input id="male" type="radio" name="gender" value="Male" required>
+						Male <input id="female" type="radio" name="gender" value="Female" required>
 						Female</td>
 				</tr>
+				<tr>
+					<td><input id="email" type="email" name="email" required placeholder="email id" /></td>
+				</tr>
+				<tr>
+					<td><input id = "pwd" type="password" name="pwd" required placeholder="Password"></td>
+				</tr>
+				<tr>
+					<td><input id = "repwd" type="password" name="pwd" required placeholder="Re-type Password" oninput="return validate()"/></td>
+					<td><span id="pwdmatch"></span></td>
+				</tr>
+				<tr>
+					<td align="justify"><input  type="submit" name="submit" value="Next -->" onsubmit="return validate()"/></td>
+				</tr>
 			</table>
-			<input type="submit" name="submit" value="Next -->" />
 		</div>
 	</form>
 </body>

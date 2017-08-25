@@ -2,13 +2,47 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Weather Info</title>
+<title>weather Info</title>
 </head>
 <body>
-	<form method="post" action="weather">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+var x = document.getElementById("demo");
+var latitude;
+var longitude;
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+function showPosition(position) {
+//     x.innerHTML = "Latitude: " + position.coords.latitude + 
+//     "<br>Longitude: " + position.coords.longitude; 
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+   	alert(latitude+", "+longitude);
+    
+}
+function getWeather() {
+	var city = document.getElementById("cityname").value;
+	  var searchtext = "select item.condition from weather.forecast where woeid in (SELECT woeid FROM geo.places WHERE text="+(32.8449965,-96.9799755)+")"
+	  //change city variable dynamically as required
+	  $.getJSON("https://query.yahooapis.com/v1/public/yql?q=" + searchtext + "&format=json").success(function(data){
+	   console.log(data);
+	   $('#demo').html("Temperature in " + city + " is " + data.query.results.channel.item.condition.temp + "°C");
+	  });
+	  
+	  $.ajax({
+		  
+	  })
+}
+</script>
+<!-- 	<form method="get" action="weather"> -->
 		<div align="center">
-			<h2>Please enter the city name and zip-code to get weather info
-				!!!</h2>
+			<h2>Please enter the city name and zip-code to get weather info !!!</h2>
+				<p id="demo"></p>
 			<table style="border-style: outset; padding: 20px;">
 				<tr>
 					<td>City</td>
@@ -20,11 +54,12 @@
 						maxlength="5" size="5" /></td>
 				</tr>
 				<tr>
-					<td align="justify"><input type="submit" name="submit"
-						value="Get Weather Info"></td>
+					<td align="justify"><input type="button" name="submit"
+						value="Get Weather Info" onclick="getLocation()" /></td>
 				</tr>
 			</table>
+			
 		</div>
-	</form>
+<!-- 	</form> -->
 </body>
 </html>

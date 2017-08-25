@@ -7,7 +7,7 @@ public class TestSpring {
 	public static void main(String args[])
 	{
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Bean.xml");
-		PersonalInfo pi = (PersonalInfo) context.getBean("personalinfo");
+		//PersonalInfo pi = (PersonalInfo) context.getBean("personalinfo");
 //		pi.setFirstName("Raja");
 //		pi.setLastName("gogula");
 //		pi.setMiddleName("Naga");

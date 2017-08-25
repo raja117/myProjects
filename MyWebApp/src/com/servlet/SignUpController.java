@@ -5,7 +5,6 @@ import java.sql.SQLException;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +15,6 @@ import com.model.SignUpAction;
 /**
  * Servlet implementation class Weather
  */
-@WebServlet("/Weather")
 public class SignUpController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -45,12 +43,12 @@ public class SignUpController extends HttpServlet {
 		{
 			session.setAttribute("name", (request.getParameter("lastname")+" "+request.getParameter("firstname")+" "+request.getParameter("middlename")));
 			session.setAttribute("gender", request.getParameter("gender"));
+			session.setAttribute("email", request.getParameter("email"));
+			session.setAttribute("pwd", request.getParameter("pwd"));
 			response.sendRedirect("contactinfo.html");
 		}
 		else if(request.getParameter("hid").equals("contact_info"))
 		{
-			session.setAttribute("email", request.getParameter("email"));
-			session.setAttribute("pwd", request.getParameter("pwd"));
 			session.setAttribute("addr", request.getParameter("addr"));
 			session.setAttribute("city", request.getParameter("city"));
 			session.setAttribute("state", request.getParameter("state"));
@@ -68,7 +66,7 @@ public class SignUpController extends HttpServlet {
 			SignUpAction sa = new SignUpAction();
 			try {
 				if(sa.signUpUser(session, context)){
-					session.invalidate();
+					//session.invalidate();
 					response.sendRedirect("success.html");
 				}
 			} catch (SQLException | ClassNotFoundException e) {

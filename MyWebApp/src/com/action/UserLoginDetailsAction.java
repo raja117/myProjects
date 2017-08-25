@@ -12,6 +12,9 @@ public class UserLoginDetailsAction {
 	private String insert_user_login_details = "insert into user_login_details (user_email, user_password, fk_user_id) values('"
 												+ email + "','" + password + "','" + userId + "')";
 	
+	public UserLoginDetailsAction() {
+	    
+	}
 	public String getEmail() {
 		return email;
 	}
