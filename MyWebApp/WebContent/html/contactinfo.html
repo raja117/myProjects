@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Contact Info</title>
+</head>
+<body>
+	<form action="controller" method="post">
+		<div align="center">
+			<input type="hidden" name="hid" value="contact_info">
+			<table>
+				<tr>
+					<td>Address* :</td>
+					<td><input id="addr" type="text" name="addr" required placeholder="Address"/></td>
+				</tr>
+				<tr>
+					<td>City* :</td>
+					<td><input id="city" type="text" name="city" required placeholder="City"/></td>
+				</tr>
+				<tr>
+					<td>State* :</td>
+					<td><input id="state" type="text" name="state" required placeholder="State"></td>
+				</tr>
+				<tr>
+					<td>Country* :</td>
+					<td><select name="country" required>
+							<option value="PleaseSelect" hidden="true">Please Select</option>
+							<option value="United States">United States</option>
+							<option value="India">India</option>
+							<option value="China">China</option>
+							<option value="Japan">Japan</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td>Phone Number* :</td>
+					<td><input id="phno" type="tel" name="phnumb" required placeholder="Contact Number"></td>
+				</tr>
+			</table>
+			<input type="submit" name="next" value="Next -->" />
+		</div>
+	</form>
+</body>
+</html>

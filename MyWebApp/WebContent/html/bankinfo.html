@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Bank Info</title>
+</head>
+<body>
+	<form action="controller" method="post">
+		<div align="center">
+			<input type="hidden" name="hid" value="bank_info">
+			<table>
+				<tr>
+					<td>Bank Name :</td>
+					<td><select name="bankname">
+							<option value="please select">Please Select</option>
+							<option value="bank of america">Bank Of America</option>
+							<option value="wells fargo">Wells Fargo</option>
+							<option value="chase bank">Chase Bank</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td>Account # :</td>
+					<td><input id="acno" type="text" name="acno" /></td>
+				</tr>
+				<tr>
+					<td>SSN :</td>
+					<td><input type="text" size="5" name="ssn" /></td>
+				</tr>
+			</table>
+			<input type="submit" name="next" value="Submit" />
+		</div>
+	</form>
+</body>
+</html>
