@@ -3,10 +3,18 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-	<div align="center">
-		<h2>You have registered successfully !!!</h2>
+	<div align="center" class="mypanel">
+		
 	</div>
+	
+	<script>
+		$.getJson('https://docs.therhinestoneworld.com/js-test/data/', function(data){
+			var test = 'data = ${data.company.name}'
+			 $(".mypanel").html(text);
+		});
+	</script>
 </body>
 </html>
