@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Test</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="index.css">
+<script>
+	var result;
+	$(document).ready(test())
+	
+	function test(){
+		$.ajax({
+			type: "GET",
+			url : "/network/subnetworks",
+			success: function(data){
+				result = data;
+			        for(var i = 0; i < data.length; i++){
+			        	$(`#sn`).append($(`<option></option>`).attr(`value`, `${data[i].snName}`).text(`${data[i].snName}`));
+			        }
+			}
+		});
+	}
+	
+	function display(){
+		$(`#table`).html(`<table id = "sn_tb" border="1">
+	<tr>
+		<th>NetworkElement Name</th>
+		<th>NetworkElement ID</th>
+		<th>NE Location</th>
+	</tr>
+	</table>`);
+		for(var i = 0 ; i < result.length ; i++){
+			if(result[i].snName === document.getElementById("sn").value){
+				$.ajax({
+					type : "GET",
+					url : "/network/subnetwork/"+document.getElementById("sn").value+"/networkelement",
+					success : function(data){
+						for(var j=0; j < data.length;j++){
+							
+							$(`#sn_tb`).append($(`<tr></tr>`).append($(`<td></td>`).html(data[j].neName)).append($(`<td></td>`).html(data[j].neId)).append($(`<td></td>`).html(data[j].neLocation)));
+						}
+						$(`#table`).append(`<input type="button" id="addne" value="Add NE" onclick="addne()"/>`);
+					}
+				});
+				
+			}
+		}
+	}
+	
+	function addne(){
+		$(`#addNe`).html(`<label>NE Name : </label><input type="text" id="nename" /><br><label>NE ID : </label><input type="text" id="neId"/><br>
+				<label>NE Location : </label><input type="text" id="neloc"/><br>
+						<input type="button" id="btn_addne" value="Submit"/>`);
+		var snName = document.getElementById("sn").value;
+		$(`#btn_addne`).click(function(){
+			var req = {
+					"neName":document.getElementById("nename").value,
+					"neId":document.getElementById("neId").value,
+					"neLocation":document.getElementById("neloc").value
+			};
+			console.log(JSON.stringify(req));
+			$.ajax({
+				type:"POST",
+				url : "/network/subnetwork/"+document.getElementById("sn").value+"/networkelement",
+				data : JSON.stringify(req),
+				dataType : "json",
+				contentType : "application/json",
+			});
+			location.reload();
+			document.getElementById("sn").value = snName;
+			display();
+		});
+	}
+	
+	function delne(){
+		
+	}
+</script>
+</head>
+<body>
+	<h1>Hello, Welcome to Spring Boot</h1>
+
+	<!-- 	<input type="button" value="Click" onclick="topath()"/> -->
+	<select id="sn"></select>
+	<input type="button" id="btn" value="Get Network Elements"
+		onclick="display()" />
+	<div id="table"></div>
+	<div id="addNe"></div>
+</body>
+</html>
